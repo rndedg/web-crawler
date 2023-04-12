@@ -1,7 +1,7 @@
 const { crawlPage } = require("./crawl");
 
 
-function main(){
+async function main(){
   if(process.argv.length < 3){
     console.log("No website provided.");
   } else if (process.argv.length > 3){
@@ -9,7 +9,9 @@ function main(){
   } else {
     const baseURL = process.argv[2];
     console.log(`Excellent, starting crawl at ${baseURL}`);
-    crawlPage(baseURL);
+    const pages = await crawlPage(baseURL, baseURL, {})
+
+    console.log(pages)
   }
 };
 
