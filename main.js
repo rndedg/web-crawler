@@ -1,4 +1,5 @@
 const { crawlPage } = require("./crawl");
+const { printReport } = require("./report")
 
 
 async function main(){
@@ -11,7 +12,7 @@ async function main(){
     console.log(`Excellent, starting crawl at ${baseURL}`);
     const pages = await crawlPage(baseURL, baseURL, {})
 
-    console.log(pages)
+    printReport(pages);
   }
 };
 
